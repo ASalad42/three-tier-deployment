@@ -130,3 +130,22 @@ Sonarqube:
 - username and password admin 
 - token squ_377b6883a0353dbe871fccccc02111a29517d77d
 - create webhook for jenkins  http://3.252.191.8:8080/sonarqube-webhook/
+
+- frontend > use the below in Jenkins Frontend Pipeline
+```
+sonar-scanner \
+  -Dsonar.projectKey=three-tier-architecture-frontend \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://3.252.191.8:9000 \
+  -Dsonar.login=squ_377b6883a0353dbe871fccccc02111a29517d77d
+```
+- backend > use the below in Jenkins Backend Pipeline
+```
+sonar-scanner \
+  -Dsonar.projectKey=three-tier-architecture-backend \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://3.252.191.8:9000 \
+  -Dsonar.login=squ_377b6883a0353dbe871fccccc02111a29517d77d
+```
+
+- ![image](https://github.com/user-attachments/assets/85ba5d97-4db1-46b3-9b60-8a49429aff1e)
