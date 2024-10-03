@@ -1,5 +1,5 @@
 
-# Three Tier Architecture deployment and monitoring
+# Three Tier Architecture Deployment and Monitoring
 
 - Data Layer (Database)
   - db.js handles database connection using Mongoose.
@@ -187,4 +187,7 @@ Monitoring with Prometheus & Grafana:
 - Access grafana on Grafana-LB-DNS > setup connection > use HTTP://Prometheus-LB-DNS:9090
 - import k8 dashboard using 6417 id
 
-Deploy using ArgoCD
+Deploy using ArgoCD:
+
+- Repos > CONNECT REPO USING HTTPS > use username and token again as password is no longer allowed
+- connection successful
