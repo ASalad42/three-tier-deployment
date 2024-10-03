@@ -171,4 +171,20 @@ Jenkins Pipeline to deploy our Backend Code:
 
 Monitoring with Prometheus & Grafana:
 
-- helm
+- helm repo add stable https://charts.helm.sh/stable
+- helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+- helm install prometheus prometheus-community/prometheus
+- helm repo add grafana https://grafana.github.io/helm-charts
+- helm repo update
+- helm install grafana grafana/grafana
+- kubectl get svc
+- kubectl edit svc stable-kube-prometheus-sta-prometheus
+- change ClusterType to LoadBalancer
+- kubectl edit svc stable-grafana
+- change ClusterType to LoadBalancer
+- kubectl get svc
+- Access prometheus on <Prometheus-LB-DNS>:9090
+- Access grafana on Grafana-LB-DNS > setup connection > use HTTP://Prometheus-LB-DNS:9090
+- import k8 dashboard using 6417 id
+
+Deploy using ArgoCD
