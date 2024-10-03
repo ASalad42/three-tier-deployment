@@ -18,14 +18,18 @@ Jenkins setup:
 - create dynamodb table for lock files with PK LockID and s3 bucket manually
 - terraform init
 - terraform validate
-- ![alt text](image.png)
+- ![image](https://github.com/user-attachments/assets/f0a8b0c5-e366-460f-ae6a-e0504057e1bb)
+
 - terraform plan -var-file="variables.tfvars"
-- ![alt text](image-1.png)
+- ![image](https://github.com/user-attachments/assets/525059fc-b610-4e78-b004-a02effbe06e2)
+
 - create key pair devtf manually
 - terraform apply -var-file="variables.tfvars" --auto-approve
-- ![alt text](image-3.png)
+- ![image](https://github.com/user-attachments/assets/df21f5c8-72f2-4049-af6c-4e794954e353)
+
 - terraform destroy -var-file="variables.tfvars"
-- ![alt text](image-2.png)
+- ![image](https://github.com/user-attachments/assets/71c91a1b-ba5c-415e-b789-217e335721ef)
+
 - connect to jenkins server
 
 ```
@@ -40,11 +44,14 @@ Host jenkins-server
 - Check the user_data log with command `cat /tmp/user_data.log`
 - This will output the log of the commands executed during the user data processing. scroll through it to check if any errors occurred during the execution of script.
 - jenkins --version, docker --version, docker ps, terraform --version, kubectl version, aws --version, trivy --version, eksctl --version
-- ![alt text](image-4.png)
+- ![image](https://github.com/user-attachments/assets/c750e374-2545-4d03-88cd-cf7557292996)
+
 - Access jenkins server on browser using public ip 3.252.191.8:8080
 - sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-- ![alt text](image-5.png)
-- ![alt text](image-6.png)
+- ![image](https://github.com/user-attachments/assets/e15c8c54-d9d9-40d2-924b-04e2a89f1196)
+
+- ![image](https://github.com/user-attachments/assets/7cea7562-e857-488f-bd0c-6724c5a4375b)
+
 
 EKS Set up
 
@@ -52,12 +59,16 @@ EKS Set up
 - manage plugins > credentials > global > AWS Access Key & Secret Access key + github token
 - aws configure
 - eksctl create cluster --name Three-Tier-Cluster --region eu-west-1 --node-type t2.medium --nodes-min 2 --nodes-max 2
-- ![alt text](image-7.png)
-- ![alt text](image-8.png)
-- ![alt text](image-9.png)
+- ![image](https://github.com/user-attachments/assets/1576b2f4-951e-43fa-9a0d-7168f8aa089b)
+
+- ![image](https://github.com/user-attachments/assets/1bbbede3-d9ab-404c-9d5c-329619e3972a)
+
+- ![image](https://github.com/user-attachments/assets/9a259193-4514-4c35-90b4-e41721bc5d69)
+
 - aws eks update-kubeconfig --region eu-west-1 --name Three-Tier-Cluster
 - kubectl get nodes
-- ![alt text](image-10.png)
+- ![image](https://github.com/user-attachments/assets/65fcc76e-69f4-47a2-9daf-e676554fa62f)
+
 - curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
 - aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json
 - OIDC Provider
@@ -66,21 +77,24 @@ EKS Set up
 - Service Account
   - delete stack eksctl-Three-Tier-Cluster-addon-iamserviceaccount-kube-system-aws-load-balancer-controller  which failed because role already existed 
   - eksctl create iamserviceaccount --cluster=Three-Tier-Cluster --namespace=kube-system --name=aws-load-balancer-controller --role-name AmazonEKSLoadBalancerControllerRoleNew --attach-policy-arn=arn:aws:iam::207204475805:policy/AWSLoadBalancerControllerIAMPolicy --approve --region=eu-west-1
-- ![alt text](image-13.png)
+- ![image](https://github.com/user-attachments/assets/c15d741b-2910-4497-b672-1b8ce5939804)
+
 - AWS Load Balancer Controller
 - sudo snap install helm --classic
 - helm repo add eks https://aws.github.io/eks-charts
 - helm repo update eks
 - helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=Three-Tier-Cluster --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller
 - kubectl get deployment -n kube-system aws-load-balancer-controller
-- ![alt text](image-14.png)
+- ![image](https://github.com/user-attachments/assets/71bc068f-82f2-4948-8430-379558879487)
+
 
 ECR Repositories :
 
 - create 2 repositories, one for backend and the other for frontend.
 - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 207204475805.dkr.ecr.eu-west-1.amazonaws.com
 - .docker/config.json file created
-- ![alt text](image-15.png)
+- ![image](https://github.com/user-attachments/assets/b4153a3c-0045-4812-8dc0-5bcb31cacde5)
+
 
 ArgoCD:
 
@@ -93,13 +107,16 @@ kubectl create secret generic ecr-registry-secret \
 ```
 
 - kubectl get secrets -n three-tier
-- ![alt text](image-16.png)
+- ![image](https://github.com/user-attachments/assets/a99c8f28-816b-4420-9d3e-d97402b0be5e)
+
 - kubectl create namespace argocd
 - kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.7/manifests/install.yaml
 - kubectl get pods -n argocd
 - kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
-- ![alt text](image-19.png)
-- ![alt text](image-18.png)
+- ![image](https://github.com/user-attachments/assets/20fe6300-675b-4dbd-80ac-ae3b3e759814)
+
+- ![image](https://github.com/user-attachments/assets/15d36a48-8b2a-48be-b7ce-627565a88b80)
+
 - sudo apt install jq -y
 - export ARGOCD_SERVER='kubectl get svc argocd-server -n argocd -o json | jq - raw-output '.status.loadBalancer.ingress[0].hostname''
 - export ARGO_PWD='kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d'
