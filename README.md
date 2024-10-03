@@ -158,6 +158,7 @@ Jenkins Pipeline to deploy our Backend Code:
 
 - dashboard > new item > pipeline > copy pipeline code into jenkins pipeline
 - use access token instead of password along with the username. 
+- create policy for ecr push and attach to jenkins role
 
 
 

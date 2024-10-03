@@ -1,0 +1,30 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:BatchGetImage",
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:PutImage",
+          "ecr:InitiateLayerUpload",
+          "ecr:UploadLayerPart",
+          "ecr:CompleteLayerUpload"
+        ],
+        "Resource": [
+            "arn:aws:ecr:eu-west-1:207204475805:repository/backend",
+            "arn:aws:ecr:eu-west-1:207204475805:repository/frontend"
+        ]
+
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "ecr:GetAuthorizationToken"
+        ],
+        "Resource": "*"
+      }
+    ]
+  }
+  
