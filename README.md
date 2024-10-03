@@ -79,3 +79,37 @@ ECR Repositories :
 
 - create 2 repositories, one for backend and the other for frontend.
 - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 207204475805.dkr.ecr.eu-west-1.amazonaws.com
+- .docker/config.json file created
+- ![alt text](image-15.png)
+
+ArgoCD:
+
+- kubectl create namespace three-tier
+
+```
+kubectl create secret generic ecr-registry-secret \
+  --from-file=.dockerconfigjson=${HOME}/.docker/config.json \
+  --type=kubernetes.io/dockerconfigjson --namespace three-tier
+```
+
+- kubectl get secrets -n three-tier
+- ![alt text](image-16.png)
+- kubectl create namespace argocd
+- kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.7/manifests/install.yaml
+- kubectl get pods -n argocd
+- kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+- ![alt text](image-19.png)
+- ![alt text](image-18.png)
+- sudo apt install jq -y
+- export ARGOCD_SERVER='kubectl get svc argocd-server -n argocd -o json | jq - raw-output '.status.loadBalancer.ingress[0].hostname''
+- export ARGO_PWD='kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d'
+- echo $ARGO_PWD
+- nGbF1Ul1is1fffHf
+
+
+Sonarqube:
+
+- access on http://3.252.191.8:9000
+- username and password admin 
+- token squ_377b6883a0353dbe871fccccc02111a29517d77d
+- create webhook for jenkins  http://3.252.191.8:8080/sonarqube-webhook/
