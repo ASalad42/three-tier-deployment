@@ -57,7 +57,7 @@ EKS Set up
 - curl -O <https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json>
 - aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json
 - eksctl utils associate-iam-oidc-provider --region=eu-west-1 --cluster=Three-Tier-Cluster --approve
-- eksctl create iamserviceaccount --cluster=Three-Tier-Cluster --namespace=kube-system --name=aws-load-balancer-controller --role-name AmazonEKSLoadBalancerControllerRole --attach-policy-arn=arn:aws:iam::<your_account_id>:policy/AWSLoadBalancerControllerIAMPolicy --approve --region=eu-west-1
+- eksctl create iamserviceaccount --cluster=Three-Tier-Cluster --namespace=kube-system --name=aws-load-balancer-controller --role-name AmazonEKSLoadBalancerControllerRole --attach-policy-arn=arn:aws:iam::207204475805:policy/AWSLoadBalancerControllerIAMPolicy --approve --region=eu-west-1
 - sudo snap install helm --classic
 - helm repo add eks <https://aws.github.io/eks-charts>
 - helm repo update eks
@@ -67,3 +67,4 @@ EKS Set up
 ECR Repositories :
 
 - create 2 repositories, one for backend and the other for frontend.
+- aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 207204475805.dkr.ecr.eu-west-1.amazonaws.com
