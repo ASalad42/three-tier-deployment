@@ -3,7 +3,7 @@
 
 - Data Layer (Database)
   - db.js handles database connection using Mongoose.
-- Logic Layer (Backend)
+- Application Layer (Backend)
   - index.js sets up a basic Express.js server, connects to the database, exposes routes for creating, updating, deleting and reading tasks and handles http requests. 
 - Presentation (Frontend)
   - app.js -  React app that displays tasks, allows users to create, delete, and update tasks. App.js component renders the task list, input forms, and buttons, which interact with the backend.
