@@ -157,6 +157,7 @@ sonar-scanner \
 Jenkins Pipeline to deploy our Backend Code:
 
 - dashboard > new item > pipeline > copy pipeline code into jenkins pipeline
+- use access token instead of password along with the username. 
 
 
 
