@@ -149,3 +149,8 @@ sonar-scanner \
 ```
 
 - ![image](https://github.com/user-attachments/assets/85ba5d97-4db1-46b3-9b60-8a49429aff1e)
+
+
+Monitoring with Prometheus & Grafana:
+
+- helm
