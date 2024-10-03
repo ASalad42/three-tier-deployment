@@ -1,6 +1,15 @@
 
 # Three Tier Architecture deployment and monitoring
 
+- Data Layer (Database)
+  - db.js handles database connection using Mongoose.
+- Logic Layer (Backend)
+  - index.js sets up a basic Express.js server, connects to the database, exposes routes for creating, updating, deleting and reading tasks and handles http requests. 
+- Presentation (Frontend)
+  - app.js -  React app that displays tasks, allows users to create, delete, and update tasks. App.js component renders the task list, input forms, and buttons, which interact with the backend.
+![image](https://github.com/user-attachments/assets/46ca3d9d-3a3e-449d-85ea-4fc3025c912f)
+
+
 - setup application code
 - write out terraform IaC - use this to setup aws infastrcuture which will host application code
 - prepare k8 manifest files to deploy backend and frontend
