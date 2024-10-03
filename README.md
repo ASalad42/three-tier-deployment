@@ -148,7 +148,17 @@ sonar-scanner \
   -Dsonar.login=squ_377b6883a0353dbe871fccccc02111a29517d77d
 ```
 
-- ![image](https://github.com/user-attachments/assets/85ba5d97-4db1-46b3-9b60-8a49429aff1e)
+- ![image](https://github.com/user-attachments/assets/3fff43f1-22ef-4146-8e45-68ab5d584187)
+- Install plugins: Docker, Docker Commons, Docker Pipeline, Docker API, docker-build-step, Eclipse Temurin installer, NodeJS, OWASP Dependency-Check, SonarQube Scanner
+- Dashboard -> Manage Jenkins -> Tools > provide configuration for tools
+- Dashboard -> Manage Jenkins -> System > SonarQube installations
+- ![image](https://github.com/user-attachments/assets/b68a28d6-4de2-482a-9ef8-fcc6a25f9aa5)
+
+Jenkins Pipeline to deploy our Backend Code:
+
+- dashboard > new item > pipeline > copy pipeline code into jenkins pipeline
+
+
 
 
 Monitoring with Prometheus & Grafana:
