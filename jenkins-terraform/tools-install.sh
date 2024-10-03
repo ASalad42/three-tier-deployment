@@ -26,7 +26,6 @@ sudo usermod -aG docker ubuntu
 sudo systemctl restart docker
 sudo chmod 777 /var/run/docker.sock
 
-# If you don't want to install Jenkins, you can create a container of Jenkins
 # docker run -d -p 8080:8080 -p 50000:50000 --name jenkins-container jenkins/jenkins:lts
 
 # Run Docker Container of Sonarqube

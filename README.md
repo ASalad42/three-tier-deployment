@@ -52,17 +52,28 @@ EKS Set up
 - manage plugins > credentials > global > AWS Access Key & Secret Access key + github token
 - aws configure
 - eksctl create cluster --name Three-Tier-Cluster --region eu-west-1 --node-type t2.medium --nodes-min 2 --nodes-max 2
+- ![alt text](image-7.png)
+- ![alt text](image-8.png)
+- ![alt text](image-9.png)
 - aws eks update-kubeconfig --region eu-west-1 --name Three-Tier-Cluster
 - kubectl get nodes
-- curl -O <https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json>
+- ![alt text](image-10.png)
+- curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
 - aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json
-- eksctl utils associate-iam-oidc-provider --region=eu-west-1 --cluster=Three-Tier-Cluster --approve
-- eksctl create iamserviceaccount --cluster=Three-Tier-Cluster --namespace=kube-system --name=aws-load-balancer-controller --role-name AmazonEKSLoadBalancerControllerRole --attach-policy-arn=arn:aws:iam::207204475805:policy/AWSLoadBalancerControllerIAMPolicy --approve --region=eu-west-1
+- OIDC Provider
+  - eksctl utils associate-iam-oidc-provider --region=eu-west-1 --cluster=Three-Tier-Cluster --approve
+  - aws eks describe-cluster --name Three-Tier-Cluster --region eu-west-1 --query "cluster.identity.oidc.issuer" --output text
+- Service Account
+  - delete stack eksctl-Three-Tier-Cluster-addon-iamserviceaccount-kube-system-aws-load-balancer-controller  which failed because role already existed 
+  - eksctl create iamserviceaccount --cluster=Three-Tier-Cluster --namespace=kube-system --name=aws-load-balancer-controller --role-name AmazonEKSLoadBalancerControllerRoleNew --attach-policy-arn=arn:aws:iam::207204475805:policy/AWSLoadBalancerControllerIAMPolicy --approve --region=eu-west-1
+- ![alt text](image-13.png)
+- AWS Load Balancer Controller
 - sudo snap install helm --classic
-- helm repo add eks <https://aws.github.io/eks-charts>
+- helm repo add eks https://aws.github.io/eks-charts
 - helm repo update eks
-- helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=my-cluster --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller
+- helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=Three-Tier-Cluster --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller
 - kubectl get deployment -n kube-system aws-load-balancer-controller
+- ![alt text](image-14.png)
 
 ECR Repositories :
 
