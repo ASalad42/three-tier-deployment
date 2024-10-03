@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git credentialsId: 'GITHUB', url: 'https://github.com/ASalad42/three-tier-deployment.git'
+                git credentialsId: 'github', url: 'https://github.com/ASalad42/three-tier-deployment.git'
             }
         }
         stage('Sonarqube Analysis') {
