@@ -1,7 +1,7 @@
 
 # Three Tier Architecture Deployment and Monitoring
 
-![image](https://github.com/user-attachments/assets/34d39df1-268b-4e4b-a2b2-87e56dcb8a52)
+![image](https://github.com/user-attachments/assets/d75e1eb8-8dd8-4ef2-9f08-d6c09496fe19)
 
 
 - Data Layer (Database)
@@ -15,8 +15,8 @@
 Jenkins setup:
 
 - setup application code
-- write out terraform IaC - use this to setup aws infastrcuture which will host application code
-- prepare k8 manifest files to deploy backend and frontend
+- write out terraform IaC - use this to setup aws infastrcuture and jenkins server
+- prepare k8 manifest files
 - aws configure
 - create dynamodb table for lock files with PK LockID and s3 bucket manually
 - terraform init
