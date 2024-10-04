@@ -194,8 +194,10 @@ Monitoring with Prometheus & Grafana:
 - ![image](https://github.com/user-attachments/assets/5c380fff-b0a9-40b3-b467-d081735a04df)
 - ![image](https://github.com/user-attachments/assets/3bcbd00f-d3bc-42f5-9cf1-6567652fbd2f)
 - ![image](https://github.com/user-attachments/assets/b277d5bd-7eee-4e84-8f82-14d9dd138cee)
-- import k8 dashboard using 6417 id
+- import k8 dashboard
 - ![image](https://github.com/user-attachments/assets/75ddde19-50e9-46cb-a658-bc8a0f149fe2)
+- ![image](https://github.com/user-attachments/assets/3e3d36c6-94bf-4d25-bc64-db890eba8a8b)
+
 
 
 Deploy using ArgoCD:
