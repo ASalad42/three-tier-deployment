@@ -160,6 +160,7 @@ Jenkins Pipeline to deploy our Backend Code:
 - use access token instead of password along with the username. 
 - create policy for ecr push and attach to jenkins role
 - ![image](https://github.com/user-attachments/assets/5de29436-c7a9-4501-984d-cbd4e0902040)
+- ![image](https://github.com/user-attachments/assets/468d3a39-f1c2-482e-9ede-66a425ae74cc)
 - ![image](https://github.com/user-attachments/assets/13616f2f-a50e-4ca8-a156-dbcf0890a09f)
 - ![image](https://github.com/user-attachments/assets/bd596132-955c-4fb2-8e2b-317c4dcd2772)
 
