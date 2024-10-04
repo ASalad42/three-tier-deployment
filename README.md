@@ -208,5 +208,7 @@ Deploy using ArgoCD:
 - In EKS PV and PVC set up for db deployment. So, if pods get deleted then, data won’t be lost. delete both db pods and notice when new ones start up that no data was lost.
 - ![image](https://github.com/user-attachments/assets/72b00e76-13ef-4cf0-b756-533d63a9f7f8)
 - ![image](https://github.com/user-attachments/assets/84e28dd5-a1b6-478b-b6c3-e86bae8aab37)
+- ![image](https://github.com/user-attachments/assets/a8fb249d-12a4-44aa-a6a5-d6469d2a0a7c)
+
 
 
