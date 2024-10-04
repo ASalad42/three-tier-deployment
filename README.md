@@ -209,7 +209,15 @@ Deploy using ArgoCD:
 - ![image](https://github.com/user-attachments/assets/72b00e76-13ef-4cf0-b756-533d63a9f7f8)
 - ![image](https://github.com/user-attachments/assets/84e28dd5-a1b6-478b-b6c3-e86bae8aab37)
 - ![image](https://github.com/user-attachments/assets/a8fb249d-12a4-44aa-a6a5-d6469d2a0a7c)
-- argoCD monitors the manifest files in db, frontend and backend and if any changes in the code then delpoys configuration.
+
+overall CICD Flow: 
+- jenkins pipeline checks out git and watches for any changes
+- when a new commit is made sonarqube analyses the code and trivy scans the files
+- the pipeline builds the docker image
+- pushes it to ECR on aws and trivy scans the image
+- the pipeline then updates the k8 file within github and commits the change for the new image tag
+- ![image](https://github.com/user-attachments/assets/a7d65315-8dac-4f65-9689-51e9a7771517)
+- argoCD monitors the manifest files in the git repo and if any changes in the code then ArgoCD in the cluster will pull and apply these changes during the sync. 
 
 
 
