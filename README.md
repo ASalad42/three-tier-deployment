@@ -187,11 +187,11 @@ Monitoring with Prometheus & Grafana:
 - change ClusterType to LoadBalancer
 - kubectl get svc
 - ![image](https://github.com/user-attachments/assets/8221b1d9-cbbf-46fb-854b-9f56e41badd2)
-- Access prometheus on <Prometheus-LB-DNS>:80
+- Access prometheus on Prometheus-LB-DNS
 - ensure ebs-csi for pvc and pv. or create manually.
 - fix finalizer for PVC: kubectl patch pvc storage-prometheus-alertmanager-0 -n default -p '{"metadata":{"finalizers":null}}' --type=merge
 - kubectl delete pvc storage-prometheus-alertmanager-0 -n default
-- Access grafana on Grafana-LB-DNS:80 > setup connection > use HTTP://Prometheus-LB-DNS:80
+- Access grafana on Grafana-LB-DNS > setup connection > use HTTP://Prometheus-LB-DNS
 - ![image](https://github.com/user-attachments/assets/5c380fff-b0a9-40b3-b467-d081735a04df)
 - ![image](https://github.com/user-attachments/assets/3bcbd00f-d3bc-42f5-9cf1-6567652fbd2f)
 - ![image](https://github.com/user-attachments/assets/b277d5bd-7eee-4e84-8f82-14d9dd138cee)
@@ -213,7 +213,7 @@ Deploy using ArgoCD:
 - ![image](https://github.com/user-attachments/assets/4a66ef32-c969-4eb6-a3b8-df57c62809ab)
 
 
-overall CICD Flow: 
+Overall CICD Flow: 
 - jenkins pipeline checks out git and watches for any changes
 - when a new commit is made sonarqube analyses the code and trivy scans the files
 - trivy checks for known security issues in container images, files, and configurations like the Dockerfiles and Kubernetes manifests. sonarqube checks code quality analysing the source code to find bugs and vulnerabilities.  
