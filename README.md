@@ -204,4 +204,9 @@ Deploy using ArgoCD:
 
 - Repos > CONNECT REPO USING HTTPS > use username and token again as password is no longer allowed
 - connection successful
-- In EKS PV and PVC set up for db deployment. So, if pods get deleted then, data won’t be lost. delete both db pods and notice when new ones start up that no data was lost. 
+- ![image](https://github.com/user-attachments/assets/f7d04fb8-c001-41bb-afaf-400b697cb82c)
+- In EKS PV and PVC set up for db deployment. So, if pods get deleted then, data won’t be lost. delete both db pods and notice when new ones start up that no data was lost.
+- ![image](https://github.com/user-attachments/assets/72b00e76-13ef-4cf0-b756-533d63a9f7f8)
+- ![image](https://github.com/user-attachments/assets/84e28dd5-a1b6-478b-b6c3-e86bae8aab37)
+
+
