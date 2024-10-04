@@ -1,6 +1,9 @@
 
 # Three Tier Architecture Deployment and Monitoring
 
+![image](https://github.com/user-attachments/assets/34d39df1-268b-4e4b-a2b2-87e56dcb8a52)
+
+
 - Data Layer (Database)
   - db.js handles database connection using Mongoose.
 - Application Layer (Backend)
