@@ -157,7 +157,7 @@ sonar-scanner \
 - Dashboard -> Manage Jenkins -> System > SonarQube installations
 - ![image](https://github.com/user-attachments/assets/b68a28d6-4de2-482a-9ef8-fcc6a25f9aa5)
 
-Jenkins Pipeline to deploy our Backend Code:
+Jenkins Pipeline:
 
 - dashboard > new item > pipeline > copy pipeline code into jenkins pipeline
 - use access token instead of password along with the username. 
@@ -167,10 +167,6 @@ Jenkins Pipeline to deploy our Backend Code:
 - ![image](https://github.com/user-attachments/assets/13616f2f-a50e-4ca8-a156-dbcf0890a09f)
 - ![image](https://github.com/user-attachments/assets/ed75ac3c-6926-4f75-99b2-74c162023322)
 - ![image](https://github.com/user-attachments/assets/bd596132-955c-4fb2-8e2b-317c4dcd2772)
-
-
-
-
 
 
 
