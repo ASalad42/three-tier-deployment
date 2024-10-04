@@ -220,6 +220,7 @@ Deploy using ArgoCD:
 overall CICD Flow: 
 - jenkins pipeline checks out git and watches for any changes
 - when a new commit is made sonarqube analyses the code and trivy scans the files
+- trivy checks for known security issues in container images, files, and configurations like the Dockerfiles and Kubernetes manifests. sonarqube checks code quality analysing the source code to find bugs and vulnerabilities.  
 - the pipeline builds the docker image
 - pushes it to ECR on aws and trivy scans the image
 - the pipeline then updates the k8 file within github and commits the change for the new image tag
