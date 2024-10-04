@@ -1,7 +1,7 @@
 
 # Three Tier Architecture Deployment and Monitoring
 
-![image](https://github.com/user-attachments/assets/d75e1eb8-8dd8-4ef2-9f08-d6c09496fe19)
+![image](https://github.com/user-attachments/assets/5627af99-001f-455a-8d2e-89825044d583)
 
 
 - Data Layer (Database)
