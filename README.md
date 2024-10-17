@@ -3,7 +3,6 @@
 
 ![image](https://github.com/user-attachments/assets/5627af99-001f-455a-8d2e-89825044d583)
 
-
 - Data Layer (Database)
   - db.js handles database connection using Mongoose.
 - Application Layer (Backend)
